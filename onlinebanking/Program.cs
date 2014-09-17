@@ -43,8 +43,17 @@ namespace OnlineBanking
                             case 3:
                                 Console.WriteLine("How much would you like to widthdraw");
                                 int cashOut = int.Parse(Console.ReadLine());
-                                totalBalance = totalBalance -cashOut;
-                                Console.WriteLine("Your total new balance is {0}", totalBalance);
+                                if (totalBalance < cashOut)
+                                {
+                                   Console.WriteLine("Sorry you do not have enough balance to withdraw");
+                                    Console.WriteLine("Max you can withdraw is {0}", totalBalance);
+                                }
+                                else
+                                {
+                                    totalBalance = totalBalance - cashOut;
+                                    Console.WriteLine("Your total new balance is {0}", totalBalance);
+                                }
+                               
                                 break;
 
                             case 4:
